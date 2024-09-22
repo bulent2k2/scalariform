@@ -1,0 +1,54 @@
+We want Kojo's script editor to format code when we are using
+Turkish keywords (dez is val, den is var and tanım is def, etc...)
+So, we add all Turkish keywords we need in the lexer (as shown below)
+
+See ./Makefile on how to build for Kojo and also do some basic
+unit testing.
+
+modified   scalariform/src/main/scala/scalariform/lexer/Keywords.scala
+@@ -7,6 +7,45 @@ object Keywords {
+   def apply(s: String): Option[TokenType] = keywords get s
+ 
+   private val keywords = Map(
+    "soyut" -> ABSTRACT,
+    "durum" -> CASE,
+    "yakala" -> CATCH,
+    "sınıf" -> CLASS,
+    "tanım" -> DEF,
+    "yap" -> DO,
+    "yoksa" -> ELSE,
+    "yayar" -> EXTENDS,
+    "yanlış" -> FALSE,
+    "son" -> FINAL,
+    "sonunda" -> FINALLY,
+    "için" -> FOR,
+    "bazı" -> FORSOME,
+    "eğer" -> IF,
+    "örtük" -> IMPLICIT,
+    "getir" -> IMPORT,
+    "miskin" -> LAZY,
+    "eşle" -> MATCH,
+    "yeni" -> NEW,
+    "yok" -> NULL,
+    "nesne" -> OBJECT,
+    "baskın" -> OVERRIDE,
+    "deste" -> PACKAGE,
+    "gizli" -> PRIVATE,
+    "koru" -> PROTECTED,
+    "geriDön" -> RETURN,
+    "damgalı" -> SEALED,
+    "üst" -> SUPER,
+    "bu" -> THIS,
+    "bildir" -> THROW,
+    "özellik" -> TRAIT,
+    "dene" -> TRY,
+    "doğru" -> TRUE,
+    "tür" -> TYPE,
+    "dez" -> VAL,
+    "den" -> VAR,
+    "yineleDoğruKaldıkça" -> WHILE,
+    "birlikte" -> WITH,
+    "ver" -> YIELD,
+
+    "abstract" -> ABSTRACT,
+...
